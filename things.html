@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lists | Juliette Mangon</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="site.css" />
+
+    <style>
+        :root {
+            --blue: #1c1ceb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Inter", sans-serif;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        a:hover {
+            color: var(--highlight);
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav a.active {
+            color: #f00;
+            text-decoration: underline;
+        }
+
+        /* ===== MAIN LAYOUT ===== */
+        main {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 10rem;
+            gap: 0rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* RIGHT SIDE - CONTENT */
+        .list-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .list-section {
+            padding-top: 3rem;
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .list-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SHARED MINIMAL LIST STYLING */
+        .simple-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            padding-top: 1.2rem;
+        }
+
+        .simple-item {
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* IN/OUT LIST SPECIFIC STYLING */
+        .in-out-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .in-section,
+        .out-section {
+            position: relative;
+        }
+
+        .in-section h2,
+        .out-section h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: -0.01em;
+        }
+
+        .in-section h2 {
+            color: var(--text);
+        }
+
+        /* MEDIA LIST SPECIFIC STYLING */
+        .media-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .media-columns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        .media-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .media-block {
+            margin: 0;
+            border-left: 2px solid var(--text);
+            border-bottom: 2px solid var(--text);
+        }
+
+        .media-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .media-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .media-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .media-number {
+            font-weight: 400;
+            color: var(--text);
+            border-radius: 50%;
+            border: 1.5px solid var(--text);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            font-size: 0.8rem;
+        }
+
+        .media-desc {
+            padding: 0 1rem;
+            display: block;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            line-height: 1.5;
+            font-weight: 500;
+            transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
+        }
+
+        .media-desc.open {
+            max-height: 500px;
+            opacity: 1;
+            padding: 1rem 1rem;
+        }
+
+        .media-desc a {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        .media-desc a:hover {
+            color: var(--highlight);
+        }
+
+        .list-intro {
+            position: absolute;
+            top: 6rem;
+            left: 0;
+            right: 0;
+            margin-left: 3rem;
+            text-align: left;
+            z-index: 100;
+        }
+
+        .intro-text {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .media-hint {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+   <nav aria-label="Site">
+        <a href="index.html" >home</a>
+        <a href="things.html"class="active">things</a>
+        <a href="media.html">media</a>
+        <a href="candy.html">candy</a>
+        <a href="places.html" >places</a>
+
+    </nav>
+
+
+    <main>
+                <div class="simple-list">
+                    <div class="simple-item">Lemons</div>
+
+                </div>
+            
+            </div>
+        </div>
+
+
+        </div>
+    </main>
+
+    <script>
+        // LIST SWITCHING
+        function showList(listId) {
+            // Hide all lists
+            document.querySelectorAll('.list-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active from all buttons
+            document.querySelectorAll('.list-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected list
+            document.getElementById(listId).classList.add('active');
+
+            // Show/hide media hint
+            const mediaHint = document.getElementById('mediaHint');
+            if (listId === 'media') {
+                mediaHint.style.display = 'block';
+            } else {
+                mediaHint.style.display = 'none';
+            }
+
+            // Activate clicked button
+            event.target.classList.add('active');
+        }
+
+        
+        
+    </script>
+</body>
+
+</html>
