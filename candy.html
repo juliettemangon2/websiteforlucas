@@ -246,6 +246,26 @@
             font-size: 1rem;
             font-weight: 400;
         }
+        .corner-logo {
+            position: fixed;
+            bottom: 5.5rem;
+            /* distance from bottom edge */
+            right: 5.5rem;
+            /* distance from right edge */
+            width: 140px;
+            /* adjust as needed */
+            height: auto;
+            z-index: 1000;
+            transform: rotate(33deg);
+            /* keep it above everything */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .corner-logo:hover {
+            opacity: 1;
+            transform: scale(1.5);
+            
+        }
     </style>
 </head>
 
@@ -262,7 +282,11 @@
 
     <main>
                 <div class="simple-list">
-                    <div class="simple-item">Candy.</div>
+                    <div class="simple-item">Trolli sour gummy worms</div>
+                    <div class="simple-item">Sour straws</div>
+                    <div class="simple-item">Airhead extremes</div>
+                    <div class="simple-item">Juicy drop taffee</div>
+                     <div class="simple-item">Sour patch watermelon</div>
 
                 </div>
             
@@ -304,6 +328,7 @@
         
         
     </script>
+     <img src="candy.svg" alt="Lucas logo" class="corner-logo">
 </body>
 
 </html>

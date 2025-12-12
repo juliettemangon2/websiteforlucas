@@ -101,7 +101,7 @@
 
         /* SHARED MINIMAL LIST STYLING */
         .simple-list {
-            
+
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
@@ -115,6 +115,21 @@
             font-weight: 500;
             line-height: 1.6;
         }
+
+        .simple-itemDate {
+            position: fixed;
+            bottom: 1rem;
+            /* 1rem above the bottom edge */
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.6;
+            z-index: 999;
+            /* make sure it stays above content */
+        }
+
 
         /* IN/OUT LIST SPECIFIC STYLING */
         .in-out-container {
@@ -246,6 +261,26 @@
             font-size: 1rem;
             font-weight: 400;
         }
+
+        .corner-logo {
+            position: fixed;
+            bottom: 1.5rem;
+            /* distance from bottom edge */
+            right: 13.5rem;
+            /* distance from right edge */
+            width: 60px;
+            /* adjust as needed */
+            height: auto;
+            z-index: 1000;
+            /* keep it above everything */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .corner-logo:hover {
+            opacity: 1;
+            transform: scale(1.5);
+
+        }
     </style>
 </head>
 
@@ -262,6 +297,7 @@
         <div class="simple-list">
             <div class="simple-item">Hi everyone its lucas.</div>
             <div class="simple-item">This is a place to store my favorite stuff.</div>
+            <div class="simple-itemDate">Last updated 9:59PM, December 11, 2025.</div>
         </div>
     </main>
 
@@ -285,6 +321,8 @@
             }
         }
     </script>
+    <img src="lucas.svg" alt="Lucas logo" class="corner-logo">
+
 </body>
 
 </html>

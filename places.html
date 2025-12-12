@@ -245,6 +245,25 @@
             font-size: 1rem;
             font-weight: 400;
         }
+         .corner-logo {
+            position: fixed;
+            bottom: 1.5rem;
+            /* distance from bottom edge */
+            right: 13.5rem;
+            /* distance from right edge */
+            width: 60px;
+            /* adjust as needed */
+            height: auto;
+            z-index: 1000;
+            /* keep it above everything */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .corner-logo:hover {
+            opacity: 1;
+            transform: scale(1.5);
+            
+        }
     </style>
 </head>
 
@@ -261,7 +280,9 @@
 
     <main>
                 <div class="simple-list">
-                    <div class="simple-item">Places.</div>
+                    <div class="simple-item">Tompkins</div>
+                    <div class="simple-item">Juliette and Amandine's Apartment</div>
+                    <div class="simple-item">Lake Sammamish</div>
 
                 </div>
             
@@ -303,6 +324,8 @@
         
         
     </script>
+        <img src="lucas.svg" alt="Lucas logo" class="corner-logo">
+
 </body>
 
 </html>

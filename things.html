@@ -245,29 +245,52 @@
             font-size: 1rem;
             font-weight: 400;
         }
+
+        .corner-logo {
+            position: fixed;
+            bottom: 1.5rem;
+            /* distance from bottom edge */
+            right: 13.5rem;
+            /* distance from right edge */
+            width: 60px;
+            /* adjust as needed */
+            height: auto;
+            z-index: 1000;
+            /* keep it above everything */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .corner-logo:hover {
+            opacity: 1;
+            transform: scale(1.5);
+
+        }
     </style>
 </head>
 
 <body>
-   <nav aria-label="Site">
-        <a href="index.html" >home</a>
-        <a href="things.html"class="active">things</a>
+    <nav aria-label="Site">
+        <a href="index.html">home</a>
+        <a href="things.html" class="active">things</a>
         <a href="media.html">media</a>
         <a href="candy.html">candy</a>
-        <a href="places.html" >places</a>
+        <a href="places.html">places</a>
 
     </nav>
 
 
     <main>
-                <div class="simple-list">
-                    <div class="simple-item">Lemons</div>
-
-                </div>
-            
-            </div>
+        <div class="simple-list">
+            <div class="simple-item">Lemons</div>
+            <div class="simple-item">Biking</div>
+            <div class="simple-item">Blue</div>
+            <div class="simple-item">Candy</div>
+            <div class="simple-item">Being cold </div>
+            <div class="simple-item">Lists</div>
+            <div class="simple-item">My friends </div>
+            <div class="simple-item">Cutting my hair</div>
+            <div class="simple-item">Popsicles</div>
         </div>
-
 
         </div>
     </main>
@@ -300,9 +323,11 @@
             event.target.classList.add('active');
         }
 
-        
-        
+
+
     </script>
+    <img src="lucas.svg" alt="Lucas logo" class="corner-logo">
+
 </body>
 
 </html>
