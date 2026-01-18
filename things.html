@@ -15,6 +15,8 @@
     <style>
         :root {
             --blue: #1c1ceb;
+            --pink: #ffc3d3;
+            
         }
 
         * {
@@ -34,6 +36,10 @@
             font-family: "Inter", sans-serif;
             line-height: 1.6;
             font-size: 1.05rem;
+        }
+        ::selection {
+            background-color: var(--blue);
+            color: var(--pink);
         }
 
         a:hover {
@@ -265,6 +271,33 @@
             transform: scale(1.5);
 
         }
+
+    /* Mobile & narrow desktops: stack nav, keep clear of theme toggle, and avoid overlap */
+    @media (max-width: 900px) {
+        .corner-logo {
+            opacity: 0;
+           
+        }
+
+        .simple-list{
+            margin: 7rem;
+            margin-right: 1rem;
+        }
+
+
+
+      /* Stack the nav links vertically in the top-left */
+    }
+
+    /* Slightly narrow desktops: reduce spacing so layout holds up when not fullscreen */
+    @media (max-width: 1200px) and (min-width: 901px) {
+        .corner-logo {
+            opacity: 0;
+           
+        }
+
+
+    }
     </style>
 </head>
 
@@ -274,7 +307,6 @@
         <a href="things.html" class="active">things</a>
         <a href="media.html">media</a>
         <a href="candy.html">candy</a>
-        <a href="places.html">places</a>
 
     </nav>
 
@@ -290,6 +322,15 @@
             <div class="simple-item">My friends </div>
             <div class="simple-item">Cutting my hair</div>
             <div class="simple-item">Popsicles</div>
+            <div class="simple-item">Small spoons</div>
+            <div class="simple-item">Yakult</div>
+            <div class="simple-item">Pomegranate (& juice)</div>
+            <div class="simple-item">Honey sticks</div>
+            <div class="simple-item">London fog; my favorite drink to get at home</div>
+            <div class="simple-item">Redbull soda</div>
+            <div class="simple-item">Poke</div>
+
+
         </div>
 
         </div>

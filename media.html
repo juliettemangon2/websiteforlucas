@@ -15,6 +15,8 @@
     <style>
         :root {
             --blue: #1c1ceb;
+            --pink: #ffc3d3;
+            
         }
 
         * {
@@ -34,6 +36,10 @@
             font-family: "Inter", sans-serif;
             line-height: 1.6;
             font-size: 1.05rem;
+        }
+        ::selection {
+            background-color: var(--blue);
+            color: var(--pink);
         }
 
         a:hover {
@@ -245,7 +251,8 @@
             font-size: 1rem;
             font-weight: 400;
         }
-         .corner-logo {
+
+        .corner-logo {
             position: fixed;
             bottom: 1.5rem;
             /* distance from bottom edge */
@@ -262,33 +269,66 @@
         .corner-logo:hover {
             opacity: 1;
             transform: scale(1.5);
-            
+
         }
+          @media (max-width: 900px) {
+        .corner-logo {
+            opacity: 0;
+           
+        }
+        .simple-list{
+            margin-top:3rem;
+        }
+
+
+
+      /* Stack the nav links vertically in the top-left */
+    }
+
+    /* Slightly narrow desktops: reduce spacing so layout holds up when not fullscreen */
+    @media (max-width: 1200px) and (min-width: 901px) {
+        .corner-logo {
+            opacity: 0;
+           
+        }
+
+
+    }
     </style>
 </head>
 
 <body>
-   <nav  aria-label="Site">
-        <a href="index.html" >home</a>
+    <nav aria-label="Site">
+        <a href="index.html">home</a>
         <a href="things.html">things</a>
         <a href="media.html" class="active">media</a>
         <a href="candy.html">candy</a>
-        <a href="places.html" >places</a>
 
     </nav>
 
 
     <main>
-                <div class="simple-list">
-                    <div class="simple-item">Now you see me</div>
-                    <div class="simple-item">Hacks</div>
-                    <div class="simple-item">Frank Sinatra</div>
-                    <div class="simple-item">Sza</div>
-                    <div class="simple-item">Tay K</div>
+        <div class="simple-list">
 
-                </div>
-            
-            </div>
+            <div class="simple-item">Hacks (TV)</div>
+            <div class="simple-item">Frank Sinatra (Artist)</div>
+            <div class="simple-item">Sza (Artist)</div>
+            <div class="simple-item">Now you see me (Film)</div>
+            <div class="simple-item">Tay K (Artist)</div>
+            <div class="simple-item">Imposters (TV)</div>
+            <div class="simple-item">Gone Girl (Film)</div>
+            <div class="simple-item">The Talented Mr. Ripley (Film)</div>
+            <div class="simple-item">The Prestige (Film)</div>
+                        <div class="simple-item">The Good Place (TV)</div>
+
+
+
+
+
+
+        </div>
+
+        </div>
         </div>
 
 
@@ -323,10 +363,10 @@
             event.target.classList.add('active');
         }
 
-        
-        
+
+
     </script>
-        <img src="lucas.svg" alt="Lucas logo" class="corner-logo">
+    <img src="lucas.svg" alt="Lucas logo" class="corner-logo">
 
 </body>
 
