@@ -1,0 +1,387 @@
+:root {
+    --blue: #1c1ceb;
+    --pink: #ffc3d3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.page-border {
+    position: fixed;
+    inset: 0;
+    border: 5px solid var(--blue);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+::selection {
+    background-color: var(--blue);
+    color: var(--pink);
+}
+
+a:hover {
+    color: #fff;
+    background-color: var(--blue);
+}
+
+/* ===== NAV ===== */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    padding-right: 2rem;
+    border-right: 5px solid var(--blue);
+    border-bottom: 5px solid var(--blue);
+    background: white;
+    z-index: 1000;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+nav a.active {
+    text-decoration: underline;
+}
+
+/* ===== MAIN LAYOUT ===== */
+main {
+    display: flex;
+    min-height: 100vh;
+    padding-top: 10rem;
+    gap: 0rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* RIGHT SIDE - CONTENT */
+.list-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.list-section {
+    padding-top: 3rem;
+    display: none;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.list-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SHARED MINIMAL LIST STYLING */
+.simple-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-top: 1.2rem;
+}
+
+.simple-item {
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.simple-itemDate {
+    position: fixed;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.6;
+    z-index: 999;
+}
+
+.slash {
+    color: var(--blue);
+    letter-spacing: 0.02em;
+    margin: 0.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: initial;
+}
+
+/* IN/OUT LIST SPECIFIC STYLING */
+.in-out-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.in-section,
+.out-section {
+    position: relative;
+}
+
+.in-section h2,
+.out-section h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+
+.in-section h2 {
+    color: var(--text);
+}
+
+/* MEDIA LIST SPECIFIC STYLING */
+.media-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.media-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.media-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.media-block {
+    margin: 0;
+    border-left: 2px solid var(--text);
+    border-bottom: 2px solid var(--text);
+}
+
+.media-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.media-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.media-title {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.media-number {
+    font-weight: 400;
+    color: var(--text);
+    border-radius: 50%;
+    border: 1.5px solid var(--text);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+}
+
+.media-desc {
+    padding: 0 1rem;
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    line-height: 1.5;
+    font-weight: 500;
+    transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
+}
+
+.media-desc.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 1rem 1rem;
+}
+
+.media-desc a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.media-desc a:hover {
+    color: var(--highlight);
+}
+
+.list-intro {
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    right: 0;
+    margin-left: 3rem;
+    text-align: left;
+    z-index: 100;
+}
+
+.intro-text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.media-hint {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* CORNER LOGO */
+.corner-logo {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 60px;
+    height: auto;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.corner-logo:hover {
+    opacity: 1;
+    transform: scale(1.5);
+}
+
+/* Candy page specific logo positioning */
+.corner-logo.candy-logo {
+    bottom: 5.5rem;
+    right: 5.5rem;
+    width: 140px;
+    transform: rotate(33deg);
+}
+
+.corner-logo.candy-logo:hover {
+    transform: scale(1.5);
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    nav {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: none;
+        border-top: 3px solid var(--blue);
+    }
+
+    main {
+        padding-top: 6rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 5rem;
+    }
+
+    .simple-list {
+        padding-top: 2rem;
+        margin: 0 auto;
+    }
+
+    .simple-itemDate {
+        bottom: 5rem;
+        padding: 0 1rem;
+        font-size: 0.9rem;
+    }
+
+    .page-border {
+        border-width: 3px;
+    }
+
+    .corner-logo {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .media-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .in-out-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        gap: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .simple-item {
+        font-size: 1rem;
+    }
+
+    .simple-itemDate {
+        font-size: 0.85rem;
+    }
+
+    .media-item-header {
+        padding: 0.75rem;
+    }
+
+    .media-title {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet - hide corner logo */
+@media (max-width: 1200px) and (min-width: 769px) {
+    .corner-logo {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
